@@ -14,5 +14,4 @@ export class SalesPersonListComponent {
     new SalesPerson("Claire", "Murphy", "cm@gmail.com", 90000),
     new SalesPerson("Mai", "Truonh", "mt@gmail.com", 60000),
   ]
-  
 }

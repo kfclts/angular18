@@ -1,10 +1,11 @@
-<table class='table table-hover'>
-  <thead class='table-dark'>
+<table class="table table-hover">
+  <thead class="table-dark">
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
       <th>Sales Volume</th>
+      <th>My Quota</th>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +13,14 @@
       <td>{{ tempSalesPerson.firstName }}</td>
       <td>{{ tempSalesPerson.lastName }}</td>
       <td>{{ tempSalesPerson.email }}</td>
-      <td>{{ tempSalesPerson.salesVolume }}</td>
+      <td>{{ tempSalesPerson.salesVolume | currency : "USD" }}</td>
+      <td>
+        <!-- should use in div, in the td will cause an error -->
+        <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">
+          Yes
+        </div>
+        <ng-template #myElseBlock>No</ng-template>
+      </td>
     </tr>
   </tbody>
 </table>
